@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Toaster />
+
+        <main className="bg-primary text-primary-foreground min-h-screen">
+          <nav className="py-6 px-8 flex justify-between font-semibold fixed bg-primary top-0 inset-x-0">
+            <Link href="/">
+              <h1>Image Compression Challenge</h1>
+            </Link>
+            <p>SEVIMA Hackathon S2 2025</p>
+          </nav>
+
+          {children}
+        </main>
       </body>
     </html>
   );
